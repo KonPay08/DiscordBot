@@ -4,6 +4,5 @@ node_modules
 coverage
 dump.rdb
 out
-config/*
-!config/default.json
+config/development.json
 dist/*
