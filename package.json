@@ -1,8 +1,9 @@
 {
   "name": "discord-bot",
   "scripts": {
-    "start": "NODE_ENV=development nodemon -r tsconfig-paths/register --watch 'src' src/booter.ts",
-    "test": "NODE_ENV=development jest --detectOpenHandles --runInBand --silent=false --verbose true --watch"
+    "dev": "NODE_ENV=development nodemon -r tsconfig-paths/register --watch 'src' src/booter.ts",
+    "test": "NODE_ENV=development jest --detectOpenHandles --runInBand --silent=false --verbose true --watch",
+    "start": "NODE_ENV=production nodemon -r tsconfig-paths/register --watch 'src' src/booter.ts"
   },
   "license": "ISC",
   "dependencies": {
