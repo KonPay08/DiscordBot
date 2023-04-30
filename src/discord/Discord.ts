@@ -21,7 +21,8 @@ export class DiscordBot {
     this.#client.on("messageCreate", async (message: Message) => {
       const channel = message.channel;
       const guild = message.guild;
-      if (guild && channel instanceof TextChannel && config.get<string>("TARGET_GUILD_CHANNEL_MAP")[guild.id] === channel.id) {
+      const TARGET_GUILD_CHANNEL_MAP = config.get<string>("TARGET_GUILD_CHANNEL_MAP")
+      if (guild && channel instanceof TextChannel && TARGET_GUILD_CHANNEL_MAP[guild.id] === channel.id) {
         await this.#handleMessage(message);
       }
     });
@@ -43,7 +44,13 @@ export class DiscordBot {
     }
   }
   async start(): Promise<void> {
-    const discordToken = config.get<string>("DISCORD_BOT_TOKEN");
-    await this.#client.login(discordToken);
+    const DISCORD_BOT_TOKEN = config.get<string>("DISCORD_BOT_TOKEN");
+    const API_PORT = config.get<string>("API_PORT")
+    try {
+      await this.#client.login(DISCORD_BOT_TOKEN);
+      console.log(`Bot is now connected to Discord and listening on port ${API_PORT}`);
+    } catch (error) {
+      console.error(`Error occurred while connecting to Discord: ${error.message}`);
+    }
   }
 }
