@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon -r tsconfig-paths/register --watch 'src' src/booter.ts",
     "test": "NODE_ENV=development jest --detectOpenHandles --runInBand --silent=false --verbose true --watch",
-    "start": "NODE_ENV=production nodemon -r tsconfig-paths/register --watch 'src' src/booter.ts"
+    "start": "NODE_ENV=production ts-node -r tsconfig-paths/register src/booter.ts"
   },
   "license": "ISC",
   "dependencies": {
