@@ -1,6 +1,6 @@
 import config from "config";
 import { Client, Message, ClientOptions, GatewayIntentBits, TextChannel } from "discord.js";
-import { APIHandler } from "~/src/api/api.handler";
+import { APIHandler } from "~/src/api/APIHandler";
 
 export class DiscordBot {
   #client: Client;

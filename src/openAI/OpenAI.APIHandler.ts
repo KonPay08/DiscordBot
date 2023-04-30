@@ -1,7 +1,7 @@
 import { OpenAI } from "~/src/openAI/OpenAI";
-import { APIHandler } from "~/src/api/api.handler";
+import { APIHandler } from "~/src/api/APIHandler";
 
-export class OpenAIHandler extends APIHandler {
+export class OpenAI_APIHandler extends APIHandler {
   #openAI: OpenAI;
   constructor() {
     super();
