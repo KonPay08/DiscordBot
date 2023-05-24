@@ -4,6 +4,6 @@
   "OPEN_AI_API_SECRET": "",
   "DISCORD_BOT_TOKEN": "",
   "TARGET_GUILD_CHANNEL_MAP": {
-    "": ""
+    "": [""]
   }
 }

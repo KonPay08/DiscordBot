@@ -21,8 +21,8 @@ export class DiscordBot {
     this.#client.on("messageCreate", async (message: Message) => {
       const channel = message.channel;
       const guild = message.guild;
-      const TARGET_GUILD_CHANNEL_MAP = config.get<string>("TARGET_GUILD_CHANNEL_MAP")
-      if (guild && channel instanceof TextChannel && TARGET_GUILD_CHANNEL_MAP[guild.id] === channel.id) {
+      const TARGET_GUILD_CHANNEL_MAP = config.get<Record<string, string[]>>("TARGET_GUILD_CHANNEL_MAP")
+      if (guild && channel instanceof TextChannel && TARGET_GUILD_CHANNEL_MAP[guild.id]?.includes(channel.id)) {
         await this.#handleMessage(message);
       }
     });
